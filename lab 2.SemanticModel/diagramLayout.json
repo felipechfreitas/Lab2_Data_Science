@@ -1,0 +1,74 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Clientes",
+          "nodeLineageTag": "fed1c7a1-5eed-411e-9156-78ed213842db",
+          "size": {
+            "height": 284,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 278,
+            "y": 5
+          },
+          "nodeIndex": "Pedidos",
+          "nodeLineageTag": "4e9af4c4-9382-4235-b665-380b3aab6e26",
+          "size": {
+            "height": 207,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 538,
+            "y": 4
+          },
+          "nodeIndex": "Produtos",
+          "nodeLineageTag": "aec1b0dd-6aa6-4839-bb1a-6940dc66718b",
+          "size": {
+            "height": 207,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 426
+          },
+          "nodeIndex": "Vendas",
+          "nodeLineageTag": "41deb63e-8c94-4817-997b-19e071b98675",
+          "size": {
+            "height": 235,
+            "width": 234
+          },
+          "zIndex": 2
+        }
+      ],
+      "name": "Todas as tabelas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas as tabelas",
+  "defaultDiagram": "Todas as tabelas"
+}

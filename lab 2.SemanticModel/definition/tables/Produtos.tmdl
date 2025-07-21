@@ -1,0 +1,51 @@
+table Produtos
+	lineageTag: aec1b0dd-6aa6-4839-bb1a-6940dc66718b
+
+	column 'ID Produto'
+		dataType: string
+		lineageTag: e9631e23-4e00-47c7-8e6b-9275c1fef6f2
+		summarizeBy: none
+		sourceColumn: ID Produto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Categoria
+		dataType: string
+		lineageTag: 3a6986bd-ef88-4235-b969-7def1f510c2d
+		summarizeBy: none
+		sourceColumn: Categoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column SubCategoria
+		dataType: string
+		lineageTag: dbd08eb9-48c7-4c03-936a-42a2c9ab695d
+		summarizeBy: none
+		sourceColumn: SubCategoria
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nome Produto'
+		dataType: string
+		lineageTag: ca7b701c-dc12-41a5-b3a9-500f03553835
+		summarizeBy: none
+		sourceColumn: Nome Produto
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Produtos = m
+		mode: import
+		source =
+				let
+				    Fonte = Csv.Document(File.Contents("D:\Power BI_Data Science\Curso Microsoft Power BI\Laboratório_2\1-datasets\Produtos.csv"),[Delimiter=";", Columns=4, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Tipo Alterado", [PromoteAllScalars=true]),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"ID Produto", type text}, {"Categoria", type text}, {"SubCategoria", type text}, {"Nome Produto", type text}}),
+				    #"Duplicatas Removidas" = Table.Distinct(#"Tipo Alterado1", {"ID Produto"})
+				in
+				    #"Duplicatas Removidas"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+
